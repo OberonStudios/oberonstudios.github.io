@@ -1,0 +1,16 @@
+.btn:hover {
+  -webkit-animation: pulse .4s;
+  animation: pulse .4s;
+}
+
+.team-photo {
+  border-radius: 50%;
+}
+
+.team-title-box {
+  width: 100%;
+}
+
+.team-title-box h2 {
+  color: #FFFF;
+}
