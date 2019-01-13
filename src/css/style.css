@@ -132,7 +132,7 @@ a.pure-button-primary {
  */
 
 .splash-container {
-    background: #1f8dd6;
+    background: linear-gradient(to right, #AECFE5, royalblue);
     z-index: 1;
     overflow: hidden;
     /* The following styles are required for the "scroll-over" effect */
@@ -204,6 +204,8 @@ a.pure-button-primary {
 /* This is a modifier class used when the content-head is inside a ribbon */
 .content-head-ribbon {
     color: white;
+    font-weight: bold;
+    letter-spacing: .3em;
 }
 
 /* This is the class used for the content sub-headers (<h3>) */
@@ -216,8 +218,8 @@ a.pure-button-primary {
 
 /* This is the class used for the dark-background areas. */
 .ribbon {
-    background: #2d3e50;
-    color: #aaa;
+    background: linear-gradient(45deg, #AECFE5, royalblue);
+    color: rgb(224, 224, 224);
 }
 
 /* This is the class used for the footer */
