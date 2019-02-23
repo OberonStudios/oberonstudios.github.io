@@ -81,7 +81,7 @@ a.pure-button-primary {
     background: #fdce2e;
     color: white;
     border-radius: 5px;
-    font-size: 120%;
+    font-size: 150%;
 }
 
 
@@ -276,6 +276,10 @@ a.pure-button-primary {
         border: none;
     }
 
+    .company {
+        padding: 100px 20px 100px 20px;
+    }
+    
 }
 
 /*
@@ -287,5 +291,9 @@ a.pure-button-primary {
     /* We increase the header font size even more */
     .splash-head {
         font-size: 300%;
+    }
+
+    .company {
+        padding: 120px 30px 150px 30px;
     }
 }
