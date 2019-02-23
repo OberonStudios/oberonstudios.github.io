@@ -32,6 +32,11 @@
     <script src="script.js"></script>
     <script>
       let provider;
+
+      const contribution = document.getElementById('contribution');
+      const contribute = document.getElementById('contribute');
+      const warning = document.getElementById('warning');
+      
       try {
         provider = new ethers.providers.Web3Provider(web3.currentProvider);        
       } catch (error) {
@@ -42,9 +47,6 @@
       }
       
       const signer = provider.getSigner();
-      const contribution = document.getElementById('contribution');
-      const contribute = document.getElementById('contribute');
-      const warning = document.getElementById('warning');
 
       const contract = new ethers.Contract(contractAddress, abi, provider);
       const contractWithSigner = contract.connect(signer);
