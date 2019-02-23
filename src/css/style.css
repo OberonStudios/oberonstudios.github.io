@@ -216,7 +216,12 @@ a.pure-button-primary {
 
 /* This is the class used for the dark-background areas. */
 .ribbon {
-    background: linear-gradient(to right, #314855, #314855);
+    /* background: linear-gradient(to right, #314855, #314855);
+     */
+    background-color: #314855;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Cpolygon fill='%23fdce2e' points='957 450 539 900 1396 900'/%3E%3Cpolygon fill='%236baa1e' points='957 450 872.9 900 1396 900'/%3E%3Cpolygon fill='%23ff953e' points='-60 900 398 662 816 900'/%3E%3Cpolygon fill='%23009b56' points='337 900 398 662 816 900'/%3E%3Cpolygon fill='%23ff5d63' points='1203 546 1552 900 876 900'/%3E%3Cpolygon fill='%2300868d' points='1203 546 1552 900 1162 900'/%3E%3Cpolygon fill='%23e33689' points='641 695 886 900 367 900'/%3E%3Cpolygon fill='%23006cb2' points='587 900 641 695 886 900'/%3E%3Cpolygon fill='%239c37a5' points='1710 900 1401 632 1096 900'/%3E%3Cpolygon fill='%23004cb3' points='1710 900 1401 632 1365 900'/%3E%3Cpolygon fill='%231741aa' points='1210 900 971 687 725 900'/%3E%3Cpolygon fill='%231f1b88' points='943 900 1210 900 971 687'/%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: cover;
     color: rgb(224, 224, 224);
 }
 
