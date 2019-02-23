@@ -14,8 +14,12 @@
     <div class="form-signin">
       <img class="mb-4 img-responsive rounded" src="https://avatars0.githubusercontent.com/u/45834871?s=400&u=44d9c2a8ef57254d90a4127fd0b1fdb6f705be9b&v=4" alt="" width="72" height="72">
       <h1 class="h3 mb-3 font-weight-normal">You can make a difference!</h1>
+      <div id="warning" class="d-none alert alert-warning" role="alert">
+        Please install <a style="color: inherit; text-decoration: underline;" class="link" href="https://metamask.io">Metamask</a>, or another Web3 Provider!
+      </div>
       <input type="text" id="contribution" class=" mb-3 form-control" placeholder="Amount in Eth" required="">
-      <button class="btn btn-lg btn-primary btn-block" onclick="sendContribute()">Contribute</button>
+      <button id="contribute" class="btn btn-lg btn-primary btn-block" onclick="sendContribute()">Contribute</button>
+      <a class="btn btn-lg btn-link btn-block" href="/">Home</a>
       <p class="mt-5 mb-3 text-muted">2019 Oberon Studios</p>
     </div>  
     <!-- This exposes the library as a global variable: ethers -->
@@ -27,13 +31,24 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="script.js"></script>
     <script>
-      const provider = new ethers.providers.Web3Provider(web3.currentProvider);
-      const signer = provider.getSigner();
-      const contribution = document.getElementById('contribution');
+      try {
+        const provider = new ethers.providers.Web3Provider(web3.currentProvider);
+        const signer = provider.getSigner();
 
-      let contract = new ethers.Contract(contractAddress, abi, provider);
-      let contractWithSigner = contract.connect(signer);
+        const contribution = document.getElementById('contribution');
+        const contribute = document.getElementById('contribute');
+        const warning = document.getElementById('warning');
 
+        const contract = new ethers.Contract(contractAddress, abi, provider);
+        const contractWithSigner = contract.connect(signer);
+
+      } catch (error) {
+        console.log('Please install metamask, or another web3 provider!');
+        warning.classList.remove('d-none');
+        contribution.classList.add('d-none');
+        contribute.classList.add('d-none');
+      }
+      
       
       const sendContribute = () => {
         contributionValue = parseInt(contribution.value, 10);
