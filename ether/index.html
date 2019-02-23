@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Dummy Contract | Oberon Studio</title>
+  </head>
+  <body class="text-center">
+    <div class="form-signin">
+      <img class="mb-4 img-responsive rounded" src="https://avatars0.githubusercontent.com/u/45834871?s=400&u=44d9c2a8ef57254d90a4127fd0b1fdb6f705be9b&v=4" alt="" width="72" height="72">
+      <h1 class="h3 mb-3 font-weight-normal">You can make a difference!</h1>
+      <input type="text" id="contribution" class=" mb-3 form-control" placeholder="Amount in Eth" required="">
+      <button class="btn btn-lg btn-primary btn-block" onclick="sendContribute()">Contribute</button>
+      <p class="mt-5 mb-3 text-muted">2019 Oberon Studios</p>
+    </div>  
+    <!-- This exposes the library as a global variable: ethers -->
+    <script src="https://cdn.ethers.io/scripts/ethers-v4.min.js" charset="utf-8" type="text/javascript"></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <script>
+      const provider = new ethers.providers.Web3Provider(web3.currentProvider);
+      const signer = provider.getSigner();
+      const contribution = document.getElementById('contribution');
+
+      let contract = new ethers.Contract(contractAddress, abi, provider);
+      let contractWithSigner = contract.connect(signer);
+
+      
+      const sendContribute = () => {
+        contributionValue = parseInt(contribution.value, 10);
+
+        if ( contributionValue < 0.001 || isNaN(contributionValue) ) {
+
+        } else {
+          let options = {
+            value: ethers.utils.parseEther(contributionValue.toString())
+          };
+          contractWithSigner.contribute(options);
+        }
+      } 
+
+    </script>
+  </body>
+</html>
